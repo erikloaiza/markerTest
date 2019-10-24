@@ -46,7 +46,7 @@ AFRAME.registerComponent("ar-stereo", {
         webCamSource.sceneEl.addEventListener("exit-vr", function() {
           webCamSource.object3D.visible = false;
         });
-      }, 1000);
+      }, 5000);
     }
   });
   // Config VR Viewer
