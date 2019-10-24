@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="./js/aframe.min.js"></script>
+    <script src="./js/aframe-extras.min.js"></script>
+    <script src="./js/aframe-ar.js"></script>
+    <script src="./js/aframe-draw-component.min.js"></script>
+    <script src="./js/aframe-textwrap-component.min.js"></script>
+    <script src="./js/vue.min.js"></script>
+    <script>
+            THREEx.ArToolkitContext.baseURL = 'https://rawgit.com/jeromeetienne/ar.js/master/three.js/'
+    </script>
+    <script src="./js/applyStereo3.js"></script>
+    <title>Markertest</title>
+</head>
+<body>
+    <a-scene embedded  ar-stereo
+    renderer="precision:high; antialias: auto; colorManagement: true; sortObjects: true;physicallyCorrectLights: true; logarithmicDepthBuffer: true;"
+    arjs="trackingMethod:best; debugUIEnabled: false; sourceType: webcam; detectionMode: mono_and_matrix; matrixCodeType: 4x4_BCH_13_5_5;canvasWidth: 240; canvasHeight: 180" id="scene">
+        <a-camera>
+            <a-marker type="barcode" v-for="marker in markers" :value="marker">
+                <a-entity id="box" geometry="primitive: box" scale ="0.75 0.75 0.75" position="0 1 0" draw="background: #D7E8FF" :textwrap="' textAlign: center; x: 128; y: 128; text:'+marker"></a-entity>
+            </a-marker>
+        </a-camera>
+    </a-scene>
+    <script>
+        var app = new Vue({
+        el: '#scene',
+        data: {
+            markers:[]
+        },
+        mounted: function(){
+            for (let index = 0; index < 31; index++) {
+                this.markers.push(index)                
+            }
+        }
+        })    
+    </script>
+</body>
+</html>
