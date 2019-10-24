@@ -17,9 +17,15 @@
     <title>Markertest</title>
 </head>
 <body>
-    <a-scene embedded  ar-stereo
-    renderer="precision:high; antialias: auto; colorManagement: true; sortObjects: true;physicallyCorrectLights: true; logarithmicDepthBuffer: true;"
-    arjs="trackingMethod:best; debugUIEnabled: false; sourceType: webcam; detectionMode: mono_and_matrix; matrixCodeType: 4x4_BCH_13_5_5;canvasWidth: 240; canvasHeight: 180" id="scene">
+        <a-scene
+        embedded
+        renderer="precision:high; antialias: auto; colorManagement: true; sortObjects: true;physicallyCorrectLights: true; logarithmicDepthBuffer: true;"
+        arjs="trackingMethod:best; debugUIEnabled: false; sourceType: webcam; detectionMode: mono_and_matrix; matrixCodeType: 4x4_BCH_13_5_5;canvasWidth: 240; canvasHeight: 180"
+        ref="scene"
+        id="scene"
+        loading-screen="dotsColor: white; backgroundColor: #993FCB"
+        ar-stereo
+      >
         <a-camera>
             <a-marker type="barcode" v-for="marker in markers" :value="marker">
                 <a-entity id="box" geometry="primitive: box" scale ="0.75 0.75 0.75" position="0 1 0" draw="background: #D7E8FF" :textwrap="' textAlign: center; x: 128; y: 128; text:'+marker"></a-entity>
