@@ -53,10 +53,14 @@ AFRAME.registerComponent("ar-stereo", {
   navigator.getVRDisplays().then(function(displays) {
     var vrDisplay = displays.length && displays[0];
     if (vrDisplay) {
-      console.log(vrDisplay);
-      vrDisplay.deviceInfo_.viewer.screenLensDistance = 0.038;
-      vrDisplay.deviceInfo_.viewer.fov = 50;
-      vrDisplay.deviceInfo_.viewer.interLensDistance = 0.03;
+      console.log('//////////////////////////////////////////////////////////')
+      console.log(vrDisplay)
+      console.log('//////////////////////////////////////////////////////////')
+      vrDisplay.deviceInfo_.distortion.coefficients[0] = 0.07;
+      vrDisplay.deviceInfo_.distortion.coefficients[0] = 0.03;
+      vrDisplay.deviceInfo_.viewer.screenLensDistance = 0.040;
+      vrDisplay.deviceInfo_.viewer.fov = 30;
+      vrDisplay.deviceInfo_.viewer.interLensDistance = 0.05;
       vrDisplay.deviceInfo_.viewer.distortionCoefficients = [0.07, 0.03];
     }
   });

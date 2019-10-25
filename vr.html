@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="./js/aframe.min.js"></script>
+    <script src="./js/aframe-extras.min.js"></script>
+    <script>
+            THREEx.ArToolkitContext.baseURL = 'https://rawgit.com/jeromeetienne/ar.js/master/three.js/'
+    </script>
+    <script src="./js/applyStereo3.js"></script>
+    <title>Markertest</title>
+</head>
+<body>
+        <a-scene>
+                <a-assets>
+                        <img id="sky" src="sky.jpg">
+                </a-assets>           
+                 <a-camera></a-camera>
+                <a-box position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9"></a-box>
+                <a-sphere position="0 1.25 -5" radius="1.25" color="#EF2D5E"></a-sphere>
+                <a-cylinder position="1 0.75 -3" radius="0.5" height="1.5" color="#FFC65D"></a-cylinder>
+                <a-plane position="0 0 -4" rotation="-90 0 0" width="4" height="4" color="#7BC8A4"></a-plane>
+                <a-sky src="#sky"></a-sky>
+        </a-scene>
+</body>
+</html>

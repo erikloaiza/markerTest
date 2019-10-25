@@ -51,6 +51,9 @@ AFRAME.registerComponent("ar-stereo", {
   });
   // Config VR Viewer
   navigator.getVRDisplays().then(function(displays) {
+    console.log('//////////////////////////////////////////////////////////')
+    console.log(displays)
+    console.log('//////////////////////////////////////////////////////////')
     var vrDisplay = displays.length && displays[0];
     if (vrDisplay) {
       console.log(vrDisplay);
