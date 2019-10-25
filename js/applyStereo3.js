@@ -58,7 +58,9 @@ AFRAME.registerComponent("ar-stereo", {
       console.log('//////////////////////////////////////////////////////////')
       vrDisplay.deviceInfo_.distortion.coefficients[0] = 0.07;
       vrDisplay.deviceInfo_.distortion.coefficients[0] = 0.03;
+      vrDisplay.deviceInfo_.viewer.baselineLensDistance = 0.028;
       vrDisplay.deviceInfo_.viewer.screenLensDistance = 0.040;
+      //vrDisplay.deviceInfo_.viewer.screenLensDistance = 0.080;
       vrDisplay.deviceInfo_.viewer.fov = 30;
       vrDisplay.deviceInfo_.viewer.interLensDistance = 0.05;
       vrDisplay.deviceInfo_.viewer.distortionCoefficients = [0.07, 0.03];
